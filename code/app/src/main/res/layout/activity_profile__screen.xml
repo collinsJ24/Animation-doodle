@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@drawable/top_rated">
+
+    <RelativeLayout
+        android:id="@+id/profile_layout"
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/ice_teal_trans"
+        android:elevation="4dp"
+        android:paddingBottom="0dp">
+
+        <ImageView
+            android:id="@+id/drop_down_option_menu"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@android:color/transparent"
+            android:onClick="menu"
+            android:src="@drawable/menu" />
+
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/user_profile_photo"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/new_profile"
+            android:elevation="5dp"
+            android:padding="20dp"
+            android:clickable="true"
+            android:onClick="get_image"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/changePicture"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_alignBottom="@+id/user_profile_photo"
+            android:layout_centerHorizontal="true"
+            android:elevation="40dp"
+            android:paddingLeft="5dp"
+            android:text="Change Picture"
+            android:background="@drawable/button_border"
+            android:visibility="invisible"
+            android:textColor="@color/colorBlack"
+            android:textStyle="bold" />
+        <Button
+            android:id="@+id/about"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/user_profile_photo"
+            android:clickable="true"
+            android:onClick="doneButton1"
+            android:text="Done"
+            android:textSize="13dp"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/ideas"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_alignBaseline="@+id/about"
+            android:layout_alignBottom="@+id/about"
+            android:layout_alignParentEnd="true"
+            android:clickable="true"
+            android:onClick="doneButton2"
+            android:text="Done"
+            android:textSize="13dp"
+            android:visibility="invisible" />
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:elevation="30dp"
+            android:text="About Section"
+            android:textColor="@color/colorWhite"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="12dp"
+            android:layout_toEndOf="@+id/about"
+            android:elevation="30dp"
+            android:paddingLeft="0dp"
+            android:text="Anime Ideas"
+            android:textColor="@color/colorWhite"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/menu_layout"
+            android:layout_width="70dp"
+            android:layout_height="100dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="53dp"
+            android:background="@drawable/button_border"
+            android:elevation="8dp"
+            android:visibility="invisible">
+
+            <Button
+                android:id="@+id/log_out_button"
+                android:layout_width="70dp"
+                android:layout_height="45dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:elevation="0dp"
+                android:fontFamily="sans-serif"
+                android:onClick="logOut"
+                android:text="@string/logout_form"
+                android:textSize="11sp" />
+
+        </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="190dp"
+        android:layout_marginTop="270dp"
+        android:background="@color/colorWhite"
+        android:paddingTop="0dp">
+
+        <EditText
+            android:id="@+id/textViewAbout"
+            android:layout_width="210dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorWhite"
+            android:clickable="true"
+            android:elevation="40dp"
+            android:paddingLeft="4dp"
+            android:focusable="false"
+            android:imeOptions="actionDone"
+            android:inputType="textNoSuggestions|textMultiLine|textFilter"
+            android:onClick="about"
+            android:paddingBottom="115dp"
+            android:textColor="@color/colorBlack" />
+
+        <EditText
+            android:id="@+id/textView"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorWhite"
+            android:clickable="true"
+            android:elevation="40dp"
+            android:focusable="false"
+            android:inputType="textNoSuggestions|textMultiLine|textFilter"
+            android:onClick="appIdeas"
+            android:paddingBottom="12dp"
+            android:paddingLeft="20dp"
+            android:textColor="@color/colorBlack" />
+
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+
+    </RelativeLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/ice_teal_trans"
+        android:paddingTop="5dp"
+        android:visibility="visible" />
+
+
+</RelativeLayout>
+

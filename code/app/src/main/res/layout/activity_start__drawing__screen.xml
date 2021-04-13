@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    tools:context="ca326.com.activities.Start_Drawing_Screen"
+    android:layout_gravity="center">
+
+    <RelativeLayout
+        android:id="@+id/sketch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/timeline"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tool_bar">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/imageView"/>
+
+        <ca326.com.activities.CanvasView
+            android:id="@+id/canvas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true" />
+
+        <RelativeLayout
+            android:id="@+id/layout_menu"
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_border"
+            android:elevation="2dp"
+            android:visibility="invisible">
+
+            <Button
+                android:id="@+id/prev_frame"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_alignStart="@+id/set_background"
+                android:layout_below="@+id/set_background"
+                android:layout_marginTop="13dp"
+                android:background="@color/fillColor"
+                android:onClick="previous_frame"
+                android:text="Previous"
+                android:textColor="@android:color/white"
+                android:textSize="8sp" />
+
+            <ImageButton
+                android:id="@+id/save_animation"
+                style="@style/Widget.AppCompat.ImageButton"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_alignTop="@+id/frame_rate_btn"
+                android:layout_marginRight="15dp"
+                android:layout_toStartOf="@+id/change_colour"
+                android:adjustViewBounds="true"
+                android:background="@android:drawable/btn_default_small"
+                android:onClick="download_animation"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/download" />
+
+            <ImageButton
+                android:id="@+id/frame_rate_btn"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@+id/set_background"
+                android:adjustViewBounds="true"
+                android:background="@android:drawable/btn_default_small"
+                android:onClick="prompt_frame_rate"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/frame_rate" />
+
+            <ImageButton
+                android:id="@+id/change_colour"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_alignStart="@+id/frame_rate_btn"
+                android:layout_alignTop="@+id/prev_frame"
+                android:adjustViewBounds="true"
+                android:background="@android:drawable/btn_default_small"
+                android:scaleType="fitCenter"
+                android:src="@drawable/rainbow_colour_picker" />
+
+            <Button
+                android:id="@+id/clear"
+                style="@style/Base.Widget.AppCompat.Button.Colored"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_alignBaseline="@+id/set_background"
+                android:layout_alignBottom="@+id/set_background"
+                android:layout_alignStart="@+id/choose"
+                android:background="@android:color/holo_red_light"
+                android:onClick="clearCanvas"
+                android:text="@string/clear"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/choose"
+                style="@style/Base.Widget.AppCompat.Button.Colored"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_above="@+id/set_background"
+                android:layout_marginStart="15dp"
+                android:layout_toEndOf="@+id/restart"
+                android:background="@android:color/holo_red_light"
+                android:onClick="choose"
+                android:text="Upload"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/restart"
+                style="@style/Base.Widget.AppCompat.Button.Colored"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:background="@android:color/holo_purple"
+                android:onClick="restart_animation"
+                android:text="Restart"
+                android:textSize="8sp" />
+
+            <Button
+                android:id="@+id/undo_button"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:background="@android:color/holo_green_dark"
+                android:onClick="undo"
+                android:text="@string/undo"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="8sp" />
+
+
+            <Button
+                android:id="@+id/save"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_above="@+id/set_background"
+                android:layout_marginRight="15dp"
+                android:layout_toStartOf="@+id/undo_button"
+                android:background="@android:color/holo_orange_dark"
+                android:onClick="save_external"
+                android:text="SAVE"
+                android:textColor="@android:color/white"
+                android:textSize="8sp" />
+
+
+            <Button
+                android:id="@+id/set_background"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_alignStart="@+id/restart"
+                android:layout_below="@+id/restart"
+                android:layout_marginTop="14dp"
+                android:background="@color/colorPrimary"
+                android:onClick="chooseImage"
+                android:textColor="@android:color/white"
+                android:textSize="8sp" />
+
+            <com.bq.markerseekbar.MarkerSeekBar
+                android:id="@+id/seekbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="19dp"
+                android:max="50"
+                android:progress="8"
+                android:theme="@style/MySeekBarTheme"
+                app:markerColor="@color/colorRed"
+                app:markerTextAppearance="@color/colorRed"
+                app:markerTextColor="#ffffff" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/nice_grey">
+
+            <ImageButton
+                android:id="@+id/menu"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:onClick="shift_menu"
+                app:srcCompat="@drawable/button_background_colour" />
+
+
+        </RelativeLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/timeline"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@android:drawable/divider_horizontal_bright"
+        tools:context=".MainActivity">
+
+
+        <ImageButton
+            android:id="@+id/add_frame_btn"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:adjustViewBounds="true"
+            android:onClick="add_frame"
+            app:srcCompat="@drawable/plus" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/frames"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="false"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:adjustViewBounds="true"
+            android:background="@color/button_focused"
+            android:divider="@null"
+            android:maxHeight="42dp"
+            android:maxWidth="42dp"
+            android:orientation="horizontal"
+            android:paddingBottom="2dp"
+            android:paddingTop="2dp"
+            android:scaleType="fitCenter"
+            android:visibility="visible"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            app:reverseLayout="true">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <ImageButton
+            android:id="@+id/play_button"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_alignBottom="@+id/add_frame_btn"
+            android:layout_alignParentEnd="true"
+            android:adjustViewBounds="true"
+            android:onClick="play_animation"
+            app:srcCompat="@drawable/video_play" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
